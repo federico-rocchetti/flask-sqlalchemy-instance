@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block body %}
+<div>
+    <table class="table table-ordered">
+        <th>Project Name</th>
+        <th>Description</th>
+        <th>Completed?</th>
+        <th>Team</th>
+        {% for project in projects %}
+            <tr>
+                <td>{{ project.project_name }}</td>
+                <td>{{ project.description }}</td>
+                <td>{{ project.completed }}</td>
+                <td>{{ project.team.team_name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
