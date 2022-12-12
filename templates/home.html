@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block body %}
-<h1>This is working</h1>
-<div>
+<h1 class="main-header">Project Tracking App</h1>
+<div class="form-container">
+    <h5>Add Team:</h5>
     <form action="{{ url_for('add_team') }}" method="POST">
         {{ team_form.csrf_token() }}
         {{ team_form.team_name.label }}
@@ -10,7 +11,8 @@
         {{ team_form.submit }}
     </form>
 </div>
- <div>
+ <div class="form-container">
+    <h5>Add Project</h5>
     <form action="{{ url_for('add_project') }}" method="POST">
         {{ project_form.csrf_token() }}
         {{ project_form.project_name.label }}

@@ -1,0 +1,20 @@
+* {
+    font-family: sans-serif;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+    margin-top: 30px;
+    border: solid black 2px;
+    border-radius: 10px;
+    padding: 10px
+}
+
+.main-header {
+    text-align: left;
+    padding: 10px;
+}

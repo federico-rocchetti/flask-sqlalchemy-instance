@@ -14,7 +14,7 @@ def home():
     team_form = TeamForm()
     project_form = ProjectForm()
     project_form.update_teams(User.query.get(user_id).teams)
-    return render_template("home.html", team_form = team_form, project_form = project_form)
+    return render_template("home.html", title = "Project Tracking App", team_form = team_form, project_form = project_form)
 
 @app.route("/add-team", methods=["POST"])
 def add_team():
