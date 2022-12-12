@@ -35,11 +35,29 @@ def add_project():
     project_form.update_teams(User.query.get(user_id).teams)
 
     if project_form.validate_on_submit():
-        print(project_form.project_name.data)
+        project_name = project_form.project_name.data
+        description = project_form.description.data
+        completed = project_form.completed.data
+        team_selection = project_form.team_selection.data
+
+        new_project = Project(project_name, completed, team_selection, description = description)
+        db.session.add(new_project)
+        db.session.commit()
+
         return redirect(url_for("home"))
     else:
         return redirect(url_for("home"))
 
+@app.route('/teams')
+def teams():
+    user = User.query.get(user_id)
+    return render_template("teams.html", title = "Teams", teams = user.teams)
+
+@app.route('/projects')
+def projects():
+    user = User.query.get(user_id)
+    projects = user.get_all_projects()
+    return render_template("projects.html", title = "Projects", projects = projects)
 
 if __name__ == "__main__":
     connect_to_db(app)
